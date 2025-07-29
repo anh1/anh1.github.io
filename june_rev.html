@@ -148,14 +148,15 @@
 <script>
   jQuery(document).ready(function() {
 
-  const parent = document.getElementById('1w');
 
- parent.addEventListener('click', function(event) {
-        const clickedElement = event.target;
-        console.log('The clicked element is:', clickedElement.id);
-        // You can now perform actions based on the clickedElement
-        // e.g., clickedElement.id, clickedElement.tagName, clickedElement.classList
-    });
+ document.getElementById("1w").addEventListener("click", function(e) {
+	// e.target is the clicked element!
+	// If it was a list item
+	if(e.target && e.target.nodeName == "a") {
+		// List item found!  Output the ID!
+		console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
+	}
+});
 
   })
   
